@@ -75,14 +75,20 @@ const Error = styled.span`
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showError, setShowError] = useState(false);
   const dispatch = useDispatch();
   const {isFechting, error} = useSelector((state) => state.user);
 
 
-  const handleClick =(e)=> {
+  const handleClick = async (e)=> {
     e.preventDefault();
-    // login(dispatch, { username, password})
-    login(dispatch, { email, password})
+    const responseData = await login(dispatch, { email, password });
+    if (responseData === undefined) {
+      setShowError(true); 
+      setTimeout(() => {
+        setShowError(false); 
+      }, 5000);
+    }
     
   }
 
@@ -92,11 +98,10 @@ const Login = () => {
         <Wrapper>
             <Title>SIGN IN</Title>
             <Form>
-                {/* <Input placeholder='Username' onChange={(e)=>setUsername(e.target.value)}/> */}
                 <Input placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>
                 <Input placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
                 <Button onClick={handleClick} disabled={isFechting}>LOGIN</Button>
-                {error && <Error>Somthing went wrong...</Error>}
+                {showError && <Error>Somthing went wrong...</Error>}
                 <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
                 <Link>CREATE A NEW ACCOUNT</Link>
             </Form>
