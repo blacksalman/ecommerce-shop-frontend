@@ -2,6 +2,8 @@
 
 Live site Url -  (https://sage-torte-84d0f0.netlify.app/).
 
+Backend Api Base Url -  (https://ecommerce-shop-api-cupa.onrender.com).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
