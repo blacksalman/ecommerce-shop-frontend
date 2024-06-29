@@ -50,7 +50,8 @@ const ProductList = () => {
     const [filters, setFilter] = useState({})
     const [sort, setSort] = useState('newest')
 
-   
+   console.log(setFilter)
+   console.log(setSort)
   return (
     <Container>
         <Navbar/>
