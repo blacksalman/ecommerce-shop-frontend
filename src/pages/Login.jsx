@@ -77,7 +77,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showError, setShowError] = useState(false);
   const dispatch = useDispatch();
-  const {isFechting, error} = useSelector((state) => state.user);
+  const {isFechting} = useSelector((state) => state.user);
 
 
   const handleClick = async (e)=> {

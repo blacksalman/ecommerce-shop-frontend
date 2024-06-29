@@ -7,7 +7,7 @@ import { mobile } from '../responsive';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { selectUser } from '../redux/userRedux';
+// import { selectUser } from '../redux/userRedux';
 import { useDispatch } from 'react-redux';
 import { removeSingleProduct, updateProductQuantity } from '../redux/cartRedux';
 
@@ -126,9 +126,9 @@ const TopButton = styled.button`
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
   const [products, setProducts] = useState(cart.products);
-  const [stripeToken, setStripeToken] = useState(null);
+  // const [stripeToken, setStripeToken] = useState(null);
   const navigate = useNavigate();
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
